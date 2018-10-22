@@ -1,4 +1,8 @@
 <?php
+// allow the config
+define('__CONFIG__', true);
+// require the config
+require_once 'inc/config.php';
 
 ?>
 
@@ -17,26 +21,13 @@
 </head>
 <body>
     <div class="uk-section uk-container">
-	    <div class="uk-grid uk-child-width-1-3@s uk-child-width-1-1" uk-grid="">
-		    <form class="js-login">
-			    <fieldset class="uk-fieldset">
-				    <legend class="uk-legend">Login</legend>
-				    <div class="uk-margin">
-					    <input class="uk-input" type="email" placeholder="Email" required>
-				    </div>
-				    <div class="uk-margin">
-					    <input class="uk-input" type="password" placeholder="Password" required>
-				    </div>
-				    <div class="uk-margin">
-					    <button class="uk-button uk-button-default" type="submit">Login</button>
-				    </div>
-			    </fieldset>
-		    </form>
-	    </div>
+	    <?="<p>Hello world. Today is " . date('dS M Y') . ".</p>"; ?>
+	    <p>
+		    <a href="php-login-registration/login.php">Login</a>
+		    <span> | </span>
+		    <a href="php-login-registration/register.php">Register</a>
+	    </p>
     </div>
-
-    <!-- UIkit JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.19/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.19js/uikit-icons.min.js"></script>
+	<?php require_once 'inc/footer.php'; ?>
 </body>
 </html>

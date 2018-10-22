@@ -5,3 +5,6 @@ if (!defined('__CONFIG__')) {
 }
 
 // config
+// DB
+include_once 'classes/DB.php';
+$con = DB::getConnection();

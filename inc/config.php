@@ -5,6 +5,9 @@ if (!defined('__CONFIG__')) {
 }
 
 // config
-// DB
+/** DB CONNECTION
+// NOTE: For security purposes, this file is usually found
+// outside of the publicly accessible folder on the server
+ **/
 include_once 'classes/DB.php';
 $con = DB::getConnection();

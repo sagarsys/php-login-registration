@@ -18,6 +18,7 @@ require_once 'inc/config.php';
 
     <base href="/" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.19/css/uikit.min.css" />
+    <link rel="stylesheet" href="php-login-registration/assets/css/main.css" />
 </head>
 <body>
 <div class="uk-section uk-container">
@@ -31,6 +32,7 @@ require_once 'inc/config.php';
                 <div class="uk-margin">
                     <input class="uk-input" type="password" placeholder="Password" required>
                 </div>
+	            <div class="uk-margin uk-alert uk-alert-danger js-error hide"></div>
                 <div class="uk-margin">
                     <button class="uk-button uk-button-default" type="submit">Register</button>
                 </div>

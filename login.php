@@ -9,7 +9,7 @@ require_once 'inc/config.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Page Title</title>
+    <title>Login</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

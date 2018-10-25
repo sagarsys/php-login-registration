@@ -3,13 +3,12 @@
 define('__CONFIG__', true);
 // require the config
 require_once 'inc/config.php';
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Page Title</title>
+    <title>Register</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +17,7 @@ require_once 'inc/config.php';
 
     <base href="/" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.19/css/uikit.min.css" />
-    <link rel="stylesheet" href="php-login-registration/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
 </head>
 <body>
 <div class="uk-section uk-container">

@@ -10,4 +10,4 @@ if (!defined('__CONFIG__')) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.19/js/uikit.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.19/js/uikit-icons.min.js"></script>
 
-<script src="php-login-registration/assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>

@@ -1,7 +1,33 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Sagar
- * Date: 24/10/2018
- * Time: 01:43
- */
+// allow the config
+define('__CONFIG__', true);
+// require the config
+require_once 'inc/config.php';
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dashboard</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="follow">
+
+    <base href="/" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.19/css/uikit.min.css" />
+</head>
+<body>
+<div class="uk-section uk-container">
+    <?="<p>Dashboard. Today is " . date('dS M Y') . ".</p>"; ?>
+    <p>
+        <a href="/login.php">Login</a>
+        <span> | </span>
+        <a href="/register.php">Register</a>
+    </p>
+</div>
+<?php require_once 'inc/footer.php'; ?>
+</body>
+</html>

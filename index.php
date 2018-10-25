@@ -9,7 +9,7 @@ require_once 'inc/config.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Page Title</title>
+    <title>Home</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,9 +23,9 @@ require_once 'inc/config.php';
     <div class="uk-section uk-container">
 	    <?="<p>Hello world. Today is " . date('dS M Y') . ".</p>"; ?>
 	    <p>
-		    <a href="php-login-registration/login.php">Login</a>
+		    <a href="/login.php">Login</a>
 		    <span> | </span>
-		    <a href="php-login-registration/register.php">Register</a>
+		    <a href="/register.php">Register</a>
 	    </p>
     </div>
 	<?php require_once 'inc/footer.php'; ?>

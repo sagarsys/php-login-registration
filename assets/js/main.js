@@ -19,33 +19,27 @@
 			// Email validation
 			const emailRegex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 			if ( !data.email || !emailRegex.test(data.email) ) {
-				const $msgEl = createElementWithText('Please enter a valid email address.');
-				$error.appendChild($msgEl);
-				if ( $error.classList.contains('hide') ) {
-					$error.classList.remove('hide');
-				}
+				displayError('Please enter a valid email address.', $error);
 				return false;
 			}
 			// Password validation
 			if ( !data.password || data.password.length < 8 ) {
-				const $msgEl = createElementWithText('Password must be at least 8 characters long.');
-				$error.appendChild($msgEl);
-				if ( $error.classList.contains('hide') ) {
-					$error.classList.remove('hide');
-				}
+				displayError('Password must be at least 8 characters long.', $error);
 				return false;
 			}
 			console.log(data);
-			
 			// if email & password valid, send the data to the server using the fetch api
-			postData(`php-login-registration/api/register.php`, data)
-			.then(resp => {
-				console.log(JSON.stringify(resp));
-				if (resp.redirect) {
-					return window.location = resp.redirect;
-				}
-			})
-			.catch(error => console.error(error));
+			postData(`/api/register.php`, data)
+				.then(resp => {
+					console.log('success resp', JSON.stringify(resp));
+					if (resp.redirect) {
+						return window.location = resp.redirect;
+					}
+					if (resp.error) {
+						return displayError(resp.error, $error);
+					}
+				})
+				.catch((error, arg2) => console.error(error, arg2));
 			
 			return false;
 		}, false);
@@ -70,22 +64,34 @@ const createElementWithText = (text, el = 'p') => {
  * Fetch API - POST helper
  * @param url
  * @param data
- * @returns {Promise<Response | never>}
+ * @returns {Promise<Response | void>}
  */
 const postData = async (url = ``, data = {}) => {
+	console.log(data, JSON.stringify(data));
 	// Default options are marked with *
 	return await fetch(url, {
 		method: "POST", // *GET, POST, PUT, DELETE, etc.
-		mode: "cors", // no-cors, cors, *same-origin
+		mode: "no-cors", // no-cors, cors, *same-origin
 		cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
 		credentials: "same-origin", // include, same-origin, *omit
 		headers: {
-			"Content-Type": "application/json; charset=utf-8",
+			"Content-Type": 'application/json',
 			// "Content-Type": "application/x-www-form-urlencoded",
+			Accept: 'application/json',
 		},
 		redirect: "follow", // manual, *follow, error
 		referrer: "no-referrer", // no-referrer, *client
 		body: JSON.stringify(data), // body data type must match "Content-Type" header
+		responseType:'json'
 	})
-	.then(response => response.json()); // parses response to JSON
+		.then(response => response.json())
+		.catch(error => console.error(`Fetch error \n`, error));
+};
+
+const displayError = (message, $error) => {
+	const $msgEl = createElementWithText(message);
+	$error.appendChild($msgEl);
+	if ( $error.classList.contains('hide') ) {
+		$error.classList.remove('hide');
+	}
 };
